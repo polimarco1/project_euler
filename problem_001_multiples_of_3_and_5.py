@@ -9,11 +9,11 @@ def multiples_3_or_5(num):
     """This function returns the sum of all multiples of 3 or 5
     below a given number.
     """
-    soma = 0
+    summation = 0
     for i in range(num):
         if i%3 == 0 or i%5 == 0:
-            soma += i
-    return soma
+            summation += i
+    return summation
 
 
 print(multiples_3_or_5(1000))
