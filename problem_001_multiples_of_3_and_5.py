@@ -1,12 +1,13 @@
 """Davis, January 4th 2019
 Author: Marco Poli
-This program returns the sum of all multiples of 3 or 5 below 1000
+This program returns the sum of all multiples of 3 or 5
+below a given number.
 """
 
 
-def multiples_3_and_5(num):
+def multiples_3_or_5(num):
     """This function returns the sum of all multiples of 3 or 5
-    below a given number
+    below a given number.
     """
     soma = 0
     for i in range(num):
@@ -15,4 +16,4 @@ def multiples_3_and_5(num):
     return soma
 
 
-print(multiples_3_and_5(1000))
+print(multiples_3_or_5(1000))
