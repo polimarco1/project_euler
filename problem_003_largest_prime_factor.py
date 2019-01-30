@@ -32,3 +32,5 @@ def largest_prime_factor(num):
             return aux
         else:
             aux -= 1
+
+print(largest_prime_factor(600851475143))
