@@ -1,4 +1,4 @@
-"""Davis, February 10th 2019
+"""Botucatu, February 10th 2019
 Author: Marco Poli
 This program returns the summation of all
 primes bellow a given integer number.
