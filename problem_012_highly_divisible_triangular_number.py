@@ -1,11 +1,11 @@
-"""Davis, January 9th 2019
+"""Botucatu, February 11th 2019
 Author: Marco Poli
-This program returns the largest prime factor for a given integer.
+This program gives the highest divisible triangular number.
 """
 from math import sqrt
 
 def is_it_prime(num):
-    """This function returns True if a integer is prime."""
+    """This function returns True if the integer is prime."""
     if (num != 2 and num % 2 == 0) or num < 2:
         return False
 
@@ -18,30 +18,29 @@ def is_it_prime(num):
         if num % aux == 0:
             return False
         aux -= 2
-
     return True
 
-def largest_prime_factor(num):
-    """This function returns the largest prime factor
-    for a given integer.
-    """
-    if num <=1:
-        return num
-    elif num % 2 == 0:
-        while num % 2 == 0:
-            num /= 2
-            if is_it_prime(num):
-                return num
-    elif is_it_prime(num):
-        return(num)
-    else:
-        aux = int(sqrt(num))
+def triangular_number(n):
+    return (n*(n+1))/2
 
-        while aux > 0:
-            if num % aux == 0 and is_it_prime(aux):
-                return aux
-            else:
-                aux -= 1
+def number_of_divisors(num):
+    divisors = []
+    if num == 1:
+        divisors = [1]
+        return [num, len(divisors), divisors]
+    elif is_it_prime(num):
+        divisors = [1, num]
+        return [num, len(divisors), divisors]
+    else:
+        aux = 1
+        while aux <= num/2:
+            if num % aux == 0:
+                divisors.append(aux)
+            aux += 1
+
+        divisors.append(num)
+
+        return [num, len(divisors), divisors]
 
 def factorization(num):
     divisors = [1]
@@ -73,8 +72,9 @@ def factorization(num):
 
         return [num, len(divisors), divisors]
 
-for i in [99, 105, 1024, 600851475143]:
-    print(factorization(i))
-
-
-#print(largest_prime_factor(600851475143))
+n = 1
+while True:
+    if factorization(triangular_number(n))[1] > 5e2:
+        print(number_of_divisors(triangular_number(n)))
+        break
+    n += 1 
